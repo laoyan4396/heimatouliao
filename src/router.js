@@ -2,14 +2,23 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // import Home from './views/home/index.vue'// 路由集组件
 import Home from './views/home/'
+import Login from './views/login'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    // 一级路由
     {
-      path: '/',
-      name: 'home',
+      psth: '/',
+      redirect: '/home' // 默然进home
+    },
+    {
+      path: '/home',
+      // name: 'home',
       component: Home
+    }, {
+      psth: '/login',
+      component: Login
     }
     // 按需加载{
     //   path: '/about',

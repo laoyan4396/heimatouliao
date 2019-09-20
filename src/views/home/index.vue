@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login">
       我是主页
   </div>
 </template>

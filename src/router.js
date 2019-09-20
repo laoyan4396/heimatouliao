@@ -9,15 +9,15 @@ export default new Router({
   routes: [
     // 一级路由
     {
-      psth: '/',
+      path: '/',
       redirect: '/home' // 默然进home
     },
     {
       path: '/home',
-      // name: 'home',
+      name: 'home',
       component: Home
     }, {
-      psth: '/login',
+      path: '/login',
       component: Login
     }
     // 按需加载{

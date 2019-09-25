@@ -8,7 +8,7 @@ import './assets/style/index.less'
 Vue.prototype.$axios = axios
 axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0'
 Vue.config.productionTip = false
-Vue.use(ElementUI)
+Vue.use(ElementUI)// 相当于全局注册elementul vue.use => 干了什么？
 new Vue({
   router,
   render: h => h(App)

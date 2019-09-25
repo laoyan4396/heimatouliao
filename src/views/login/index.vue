@@ -65,6 +65,32 @@ export default {
 
       } // 登录规则集合对象
     }
+  },
+  methods: {
+    login () {
+      this.$refs.myForm.validate((isok) => {
+        if (isok) {
+          // 只有一切的校验通过之后 ，才会进行请求
+          this.$axios({
+            method: 'post',
+            url: '/authorizations',
+            data: this.loginForm
+          }).then(result => {
+            // 将后台返回的token令牌存储到前端缓存中
+            window.localStorage.setItem('user-token', result.data.data.token)
+            this.$router.push('/home')// 跳转到主页
+          }).catch(() => {
+            // 提示消息
+            this.$message({
+              type: 'warning',
+              message: '您的手机号或者验证码错误'
+            })// 这个error 就是上面的error
+          }) // 成功的话进去then  不成功的话进去catch
+        }
+      })
+      // 校验整个表单的规则
+      // validate  是一个方法 => 方法中传入一个函数 两个校验参数 是佛校验成功/未校验成功
+    }
   }
 
 }
